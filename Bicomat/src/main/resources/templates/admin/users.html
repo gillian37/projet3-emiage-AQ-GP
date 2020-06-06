@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+        <title>Users List</title>
+   <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0,maximum-scale=1.0" />
+
+<link rel="stylesheet" href="../css/bulma.min.css"/>
+    <script defer src="../js/all.js"></script>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+</head>
+ 
+<body>
+
+<h1> Les users</h1>
+<td><a th:href="${'/user/new/'}">Nouvel Utilisateur</a></td>
+<div class="container">
+        <div th:if="${not #lists.isEmpty(users)}">
+            <h2>Product List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>id</th>
+                    <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>SSO ID</th>
+                        
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"><a href="/admin/user/${user.id}">Id</a></td>
+                    <td th:text="${user.firstName}"></td>
+                        <td th:text="${user.lastName}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.ssoId}"></td>
+                    <td><a th:href="${'/admin/user/' + user.id}">View</a></td>
+                    <td><a th:href="${'/admin/user/edit/' + user.id}">Edit</a></td>
+                    <td><a th:href="${'/admin/user/delete/' + user.id}">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+</div>
+ </body>
+</html>
