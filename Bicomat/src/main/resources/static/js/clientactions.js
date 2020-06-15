@@ -27,6 +27,9 @@ $(document).ready(function() {
 	$("#loadAlerte").on("click",function(){
 		chargerPage("/client/alertes","#compteLoad");
 	});
+	$("#loadDocuments").on("click",function(){
+		chargerPage("/client/documents","#compteLoad");
+	});
 	
 	
   $("#loadTiers").on("click",function(){
@@ -43,10 +46,6 @@ $(document).ready(function() {
 		chargerPage("/client/prelevement","#compteLoad");
 	});
 	$("#loadOpposition").on("click",function(){
-		chargerPage("/client/prelevement","#compteLoad");
-	});
-	
-	$("#loadDocument").on("click",function(){
 		chargerPage("/client/prelevement","#compteLoad");
 	});
 	
