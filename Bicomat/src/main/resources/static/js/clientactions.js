@@ -30,6 +30,9 @@ $(document).ready(function() {
 	$("#loadDocuments").on("click",function(){
 		chargerPage("/client/documents","#compteLoad");
 	});
+	$("#loadOperations").on("click",function(){
+		chargerPage("/client/operations/","#compteLoad");
+	});
 	
 	
   $("#loadTiers").on("click",function(){
