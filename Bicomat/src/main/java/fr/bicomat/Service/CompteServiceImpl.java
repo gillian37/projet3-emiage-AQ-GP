@@ -422,5 +422,10 @@ public class CompteServiceImpl implements CompteService {
 		Operation opDebit = new Operation(p.getCompteByCompteDebiteur(), 0, now, p.getMontant(), TypeOperation.DEBIT.getType());
 		this.saveOperation(opDebit);		
 	}
+	
+	@Override
+	public List<Operation> listerOperations(CompteClient compte, Date dateDebut, Date dateFin){
+		return operationRepository.findByCompteAndDateOperationBetween(compte, dateDebut, dateFin);
+	}
 
 }

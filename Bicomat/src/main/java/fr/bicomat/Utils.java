@@ -1,4 +1,7 @@
 package fr.bicomat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,4 +29,8 @@ public class Utils {
 	    }
 	    return true;
 	  }
+  
+	public static Date convertFrToEn(String dateFr) throws ParseException {
+		return new SimpleDateFormat("yyyy-MM-dd").parse(dateFr);
+	}
 }

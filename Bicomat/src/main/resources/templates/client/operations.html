@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Opérations</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--  link rel="stylesheet" href="../../css/font-awesome.min.css" -->
+<link href="../../css/fonts.googleapis.com.css" rel="stylesheet">
+<!-- Bulma Version 0.7.2-->
+<link rel="stylesheet" href="../../css/bulma.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link rel="stylesheet" type="text/css"
+	href="./../webjars/sweetalert2/6.2.1/dist/sweetalert2.css">
+<link rel="stylesheet" type="text/css" href="../css/agency.css">
+<script src="./../webjars/jquery/3.1.1/jquery.js"></script>
+<script src="./../webjars/lodash/4.17.10/lodash.js"></script>
+
+<script src="./../webjars/sweetalert2/6.2.1/dist/sweetalert2.js"></script>
+<script src="../../js/searchOperations.js"></script>
+<script src="../../js/exportExcel.js"></script>
+
+</head>
+<body>
+	<section class="section is-fullheight">
+		<div class="card-content">
+			<div class="content">
+       			<h2 class="subtitle" >Rechercher des opérations</h2>
+				<div class="control has-icons-left has-icons-right">
+					<p>
+						<label for="dateDebut">Date de début : </label><input type="date" name="dateDebut" id="dateDebut">
+						<label for="dateFin">Date de fin : </label><input type="date" name="dateFin" id="dateFin">
+						<button class="button is-info" id="btnsearch">Rechercher</button>
+        			</p>
+        			<table class="table is-responsive" id="listOperations">
+                       <thead>
+                           <tr>
+                               <th>Id</th>
+								<th>Libellé</th>
+								<th>Date</th>
+								<th>Type</th>
+								<th>Montant</th>
+								<th>Pointer</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr th:each="operation:${listOperations}">
+								<td th:text="${operation.id}"></td>
+								<td th:text="${operation.libelleOperation}"></td>
+								<td th:text="${operation.dateOperation}"></td>
+								<td th:text="${operation.typeOperation}"></td>
+								<td th:text="${operation.montant} + ' €'"></td>
+								<td><input type='checkbox' name='pointer' th:checked="${operation.pointer}"></td>
+							</tr>
+                       </tbody>
+                   </table>	
+                   <button class="button is-info" id="exportExcel">Exporter les opérations sous Excel</button>	
+				</div>
+			</div>
+		</div>
+	</section>

@@ -241,5 +241,14 @@ public interface CompteService {
 	  * @param p Prélevement
 	  */
 	 void saveOperation(Prelevement p);
+	 
+	 /**
+	  * Retourne la liste des opérations à partir du compte et d'une période
+	  * @param compte du client
+	  * @param date début de la période
+	  * @param date de fin de la période
+	  */
+	 
+	 List<Operation> listerOperations(CompteClient compte, Date dateDebut, Date dateFin);
 
 }
