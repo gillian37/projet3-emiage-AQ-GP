@@ -329,9 +329,13 @@ public class CompteServiceImpl implements CompteService {
 	@Override
 	public boolean PointerSurOperation(Long id) {
 		Operation operation = operationRepository.getOne(id);
-		if(operation != null)
-		{
-			operation.setOpposition(true);
+		if(operation != null){
+			
+			if(operation.getPointer())
+				operation.setPointer(false);
+			else
+				operation.setPointer(true);
+			
 			return operationRepository.saveAndFlush(operation) != null;
 		}
 		return false;
