@@ -42,7 +42,7 @@ public class RestClientController {
 
 	@Autowired
 	private UserService userService;
-	
+		
 	private String getPrincipal(){
 	      String userName = null;
 	      Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -94,6 +94,11 @@ public class RestClientController {
 		}
 
 		return null;
+	}
+	
+	@RequestMapping(value = "/pointerOperation", method = RequestMethod.GET)
+	public void pointerEcriture(ModelMap model, Long idOperation) {
+		compteService.PointerSurOperation(idOperation);
 	}
 
 }
