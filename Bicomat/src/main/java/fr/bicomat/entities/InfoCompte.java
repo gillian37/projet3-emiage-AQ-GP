@@ -112,6 +112,7 @@ public class InfoCompte implements java.io.Serializable {
 		this.tauxInteret = tauxInteret;
 	}
 
+	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "infoCompte")
 	public Set<Compte> getComptes() {
 		return this.comptes;

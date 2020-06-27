@@ -31,7 +31,7 @@ $(document).ready(function() {
 				}else{
 					swal(
 							'Oops...',
-							message,
+							'Une erreur est survenue lors de la récupération des opérations',
 							'error'
 					)
 				}
@@ -44,7 +44,7 @@ $(document).ready(function() {
 	 *  Chargment des clients dans la page.
 	 */
 	function loadOperations(){
-		//$("#listOperations tr").remove();
+		
 		var row="<tr><th>N°</th>"+
 				"<th>Libellé</th>"+
 				"<th>Date</th>"+
@@ -54,11 +54,11 @@ $(document).ready(function() {
 		$('#listClient > tbody:last-child').append(row);
 
 		_.forEach($listOperations, function(operation){
-			var checked = "";
-			if(operation.pointer != false)
-				checked = "checked";
+			var pointer = "";
+			if(operation.pointer == 1)
+				pointer = "checked";
 				
-			row ="<tr><td> "+ operation.id +"</td> <td> "+ operation.libelleOperation +"</td><td> "+ operation.dateOperation +"</td><td> "+ operation.typeOperation +"</td><td>" + operation.montant + " €</td><td><input type='checkbox' name='pointer' " + checked + "></td><td><input type='hidden' name='id' value='" + operation.id + "'></td></tr>";
+			row ="<tr><td> "+ operation.id +"</td> <td> "+ operation.libelleOperation +"</td><td> "+ operation.dateOperation +"</td><td> "+ operation.typeOperation +"</td><td>" + operation.montant + " €</td><td><input type='checkbox' onChange='pointerOperation("+operation.id+");' class='pointer' "+pointer+" id='"+operation.id+"'></td></tr>";
 			$('#listOperations > tbody:last-child').append(row);	
 		})
 	}

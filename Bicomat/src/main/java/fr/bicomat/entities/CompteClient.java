@@ -4,9 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @DiscriminatorValue(value = "CLIENT")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CompteClient extends Compte implements java.io.Serializable {
 
 	/**
@@ -28,6 +31,8 @@ public class CompteClient extends Compte implements java.io.Serializable {
 	 * Montant du découvert
 	 */
 	private double montantDecouvert = 0 ;
+	private String iban;
+	private String bic;
 	
 	
 	@Column(name = "montant_decouvert", nullable = false, precision = 22, scale = 0)
@@ -55,6 +60,24 @@ public class CompteClient extends Compte implements java.io.Serializable {
 
 	public void setSolde(double solde) {
 		this.solde = solde;
+	}
+
+	@Column(name = "iban", length = 34)
+	public String getIban() {
+		return iban;
+	}
+
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+
+	@Column(name = "bic", length = 11)
+	public String getBic() {
+		return bic;
+	}
+
+	public void setBic(String bic) {
+		this.bic = bic;
 	}
 
 }

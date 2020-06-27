@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>Documents</title>
+<title>Comptes</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,46 +20,37 @@
 <script src="./../webjars/lodash/4.17.10/lodash.js"></script>
 
 <script src="./../webjars/sweetalert2/6.2.1/dist/sweetalert2.js"></script>
+<script src="../../js/searchCompte.js"></script>
 
 </head>
 <body>
 	<section class="section is-fullheight">
 		<div class="card-content">
 			<div class="content">
-       			<h2 class="subtitle" >Gestion de vos documents</h2>
+       			<h2 class="subtitle" >Comptes</h2>
 				<div class="control has-icons-left has-icons-right">
+				<section class="section Toload" id="compteLoad">
 					<table class="table is-responsive">
 						<thead>
 							<tr>
-								<th>Id</th>
-								<th>Titre</th>
+								<th>N°</th>
+								<th>Type</th>
+								<th>Etat</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="document : ${page.content}">
-								<td th:text="${document.iddocument}"></td>
-								<td th:text="${document.nomDoc}"></td>
-
+							<tr th:each="compte : ${page.content}">
+								<td th:text="${compte.numecompte}"></td>
+								<td th:text="${compte.typeCompte}"></td>
+								<td th:text="${compte.etatCompte}"></td>
+								<td><button class="button is-info btn-iban" th:id="${compte.idcompte}">Afficher RIB</button></td>
 							</tr>
 						</tbody>
 					</table>
-					
-					<div class="pagination-div">
-						<span th:if="${page.hasPrevious()}"> <a
-							th:href="@{/client/documents(page=${page.number-1},size=${page.size})}">Previous</a>
-						</span>
-						<th:block
-							th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
-							<span th:if="${page.number == i}" class="selected">[[${i}+1]]</span>
-							<span th:unless="${page.number == i}"> <a
-								th:href="@{/client/documents(page=${i},size=${page.size})}">[[${i}+1]]</a>
-							</span>
-						</th:block>
-						<span th:if="${page.hasNext()}"> <a
-							th:href="@{/client/documents(page=${page.number+1},size=${page.size})}">Next</a>
-						</span>
-					</div>
-										
+					</section>
+					<section id="iban">
+					</section>
 				</div>
 			</div>
 		</div>

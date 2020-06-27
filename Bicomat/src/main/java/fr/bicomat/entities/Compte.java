@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.InheritanceType;
@@ -90,6 +91,7 @@ public abstract class Compte implements java.io.Serializable {
 		this.client = client;
 	}
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "infoCompte_idinfoCompte")
 	public InfoCompte getInfoCompte() {
