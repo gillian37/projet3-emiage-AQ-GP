@@ -121,5 +121,10 @@ public interface ClientService {
 	  */
 	 Set<Alerte> GetAlertetApplicable(Date date);
 	
+	 /**
+	  * Souscrit aux documents électroniques
+	  * @param id du client
+	  */
+	 public void documentsElectroniques(Integer Idclient);
 
 }

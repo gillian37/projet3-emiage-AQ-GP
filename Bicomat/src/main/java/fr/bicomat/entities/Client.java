@@ -54,6 +54,7 @@ public class Client implements java.io.Serializable {
 	private Set<Compte> comptes = new HashSet<Compte>(0);
 	private Set<CarteBancaire> carteBancaires = new HashSet<CarteBancaire>(0);
 	private Set<Prelevement> prelevements = new HashSet<Prelevement>(0);
+	private Boolean docsElectroniques;
 
 	public Client() {
 	}
@@ -256,6 +257,15 @@ public class Client implements java.io.Serializable {
 
 	public void setPrelevements(Set<Prelevement> prelevements) {
 		this.prelevements = prelevements;
+	}
+
+	@Column(name = "docsElectroniques")
+	public Boolean getDocsElectroniques() {
+		return docsElectroniques;
+	}
+
+	public void setDocsElectroniques(Boolean docsElectroniques) {
+		this.docsElectroniques = docsElectroniques;
 	}
 
 }

@@ -147,4 +147,13 @@ public class ClientServiceImpl implements ClientService {
 	public Set<Alerte> GetAlertetApplicable(Date date) {
 		return alerteRepository.findByDateAlerte(date);
 	}
+	
+	@Override
+	public void documentsElectroniques(Integer idClient) {
+		
+		if(this.getClientById(idClient).getDocsElectroniques())
+			this.getClientById(idClient).setDocsElectroniques(false);
+		else
+			this.getClientById(idClient).setDocsElectroniques(true);	
+	}
 }

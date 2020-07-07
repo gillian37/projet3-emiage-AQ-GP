@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.bicomat.Utils;
 import fr.bicomat.Auth.service.UserService;
 import fr.bicomat.Service.BanqueService;
+import fr.bicomat.Service.ClientService;
 import fr.bicomat.Service.CompteService;
 import fr.bicomat.dao.AlerteRepository;
 
@@ -42,6 +43,10 @@ public class RestClientController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private ClientService clientService;
+	
 		
 	private String getPrincipal(){
 	      String userName = null;
@@ -77,7 +82,6 @@ public class RestClientController {
 			System.out.println(e );
 		}
 
-
 		return null;
 	}
 	
@@ -99,6 +103,11 @@ public class RestClientController {
 	@RequestMapping(value = "/pointerOperation", method = RequestMethod.GET)
 	public void pointerEcriture(ModelMap model, Long idOperation) {
 		compteService.PointerSurOperation(idOperation);
+	}
+	
+	@RequestMapping(value = "/souscrireDocsElectroniques", method = RequestMethod.GET)
+	public void souscrireDocumentsElectroniques(ModelMap model, Integer idClient) {
+		clientService.documentsElectroniques(idClient);
 	}
 
 }

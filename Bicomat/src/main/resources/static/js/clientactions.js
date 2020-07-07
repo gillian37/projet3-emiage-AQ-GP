@@ -37,7 +37,10 @@ $("#loadOperations").on("click",function(){
 $("#btn-iban").on("click",function(){
 	chargerPage("/client/iban/","#compteLoad");
 });
-	
+$("#loadProfil").on("click",function(){
+	afficherConteneur("#compte");
+	chargerPage("/client/profil/","#compteLoad");
+});	
 	
 $("#loadTiers").on("click",function(){
 	chargerPage("/client/comptetiers","#compteLoad");
@@ -55,6 +58,7 @@ $("#loadPrelevement").on("click",function(){
 $("#loadOpposition").on("click",function(){
 	chargerPage("/client/prelevement","#compteLoad");
 });
+
 
 afficherConteneur("#home");
 	
