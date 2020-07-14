@@ -17,6 +17,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/accessDenied").setViewName("accessDenied");
         registry.addViewController("/changedpassword").setViewName("changedpassword");
         registry.addViewController("/resetPassword").setViewName("resetPassword");
+        registry.addViewController("/displayRegulations").setViewName("displayRegulations");
         
         registry.addViewController("/agent/index").setViewName("agent/index");
         registry.addViewController("/agent/gesCompte").setViewName("agent/searchClient");

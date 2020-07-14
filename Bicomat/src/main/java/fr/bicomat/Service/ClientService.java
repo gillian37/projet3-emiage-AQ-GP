@@ -126,5 +126,15 @@ public interface ClientService {
 	  * @param id du client
 	  */
 	 public void documentsElectroniques(Integer Idclient);
-
+	 /**
+	  * Souscrit aux offres promotionnelles agence
+	  * @param id du client
+	  */
+	 public void offresPromosAgence(Integer Idclient);
+	 /**
+	  * Souscrit aux offres promotionnelles partenaire
+	  * @param id du client
+	  */
+	 public void offresPromosPartenaire(Integer Idclient);
+	
 }

@@ -92,6 +92,14 @@ public class UserController {
 		model.addAttribute("user",userService.getUserByssoId(getPrincipal()));
 		return "resetPassword";
 	}
+	
+	@RequestMapping(value = "/displayRegulations", method = RequestMethod.GET)
+	public String displayRegulations( Model model) {
+		model.addAttribute("user",userService.getUserByssoId(getPrincipal()));
+		return "displayRegulations";
+	}
+	
+	
 
 	/**
 	 * 

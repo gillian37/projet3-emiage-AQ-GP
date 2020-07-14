@@ -49,4 +49,16 @@ public class ClientController {
 	    model.addAttribute("client", client);
 	      return "client/profil";
 	  }
+	
+	@RequestMapping("/client/displayRegulations")
+	  public String getalerte1(Pageable pageable, Model model) {
+		
+		Client client = clientService.getClientById(userService.getUserByssoId(getPrincipal()).getIdClient());
+	    	    
+	    model.addAttribute("client", client);
+	      return "displayRegulations";
+	  }
+	
+	
+	
 }

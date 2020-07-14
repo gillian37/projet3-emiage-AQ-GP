@@ -109,5 +109,15 @@ public class RestClientController {
 	public void souscrireDocumentsElectroniques(ModelMap model, Integer idClient) {
 		clientService.documentsElectroniques(idClient);
 	}
+	
+	@RequestMapping(value = "/souscrireOffresPromoAgence", method = RequestMethod.GET)
+	public void souscrireOffresPromo(ModelMap model, Integer idClient) {
+		clientService.offresPromosAgence(idClient);
+	}
+	
+	@RequestMapping(value = "/souscrireOffresPromoPartenaire", method = RequestMethod.GET)
+	public void souscrireOffresPartenaire(ModelMap model, Integer idClient) {
+		clientService.offresPromosPartenaire(idClient);
+	}
 
 }

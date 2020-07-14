@@ -55,6 +55,8 @@ public class Client implements java.io.Serializable {
 	private Set<CarteBancaire> carteBancaires = new HashSet<CarteBancaire>(0);
 	private Set<Prelevement> prelevements = new HashSet<Prelevement>(0);
 	private Boolean docsElectroniques;
+	private Boolean offresPromosAgence;
+	private Boolean offresPromosPartenaire;
 
 	public Client() {
 	}
@@ -266,6 +268,24 @@ public class Client implements java.io.Serializable {
 
 	public void setDocsElectroniques(Boolean docsElectroniques) {
 		this.docsElectroniques = docsElectroniques;
+	}
+	
+	@Column(name = "offresPromosAgence")
+	public Boolean getOffresPromosAgence() {
+		return offresPromosAgence;
+	}
+
+	public void setOffresPromosAgence(Boolean offresPromosAgence) {
+		this.offresPromosAgence = offresPromosAgence;
+	}
+	
+	@Column(name = "offresPromosPartenaire")
+	public Boolean getOffresPromosPartenaire() {
+		return offresPromosPartenaire;
+	}
+
+	public void setOffresPromosPartenaire(Boolean offresPromosPartenaire) {
+		this.offresPromosPartenaire = offresPromosPartenaire;
 	}
 
 }

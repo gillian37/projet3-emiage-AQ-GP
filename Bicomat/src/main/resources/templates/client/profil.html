@@ -14,26 +14,73 @@
 <link rel="stylesheet" href="../../css/bulma.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/login.css">
 <link rel="stylesheet" type="text/css"
-	href="./../webjars/sweetalert2/6.2.1/dist/sweetalert2.css">
+	href="./../webjars/sweetalert2/6.2.1/dist/sweetalert2.css"> 
 <link rel="stylesheet" type="text/css" href="../css/agency.css">
 <script src="./../webjars/jquery/3.1.1/jquery.js"></script>
 <script src="./../webjars/lodash/4.17.10/lodash.js"></script>
 <script src="../../js/setDocumentsElectroniques.js"></script>
+<script src="../../js/searchInfoClient.js"></script>
 
 
 </head>
 <body>
 	<section class="section is-fullheight">
 		<div class="card-content">
-			<div class="content">
-       			<h2 class="subtitle" >Données personnelles</h2>
+			<div class="content">       		
 				<div class="control has-icons-left has-icons-right">
-					<h3>Souscription documents électroniques</h3>
+					<h1 align=center> Données personnelles</h1> <br>	
+					
+					<div  class="control">
+                                     <button class="button is-info btn-enregistrer">Enregistrer</button>
+                                      <button class="button is-info btn-modifier">Modifier</button>
+                                     
+                     </div>
+					
+					<h3> Gestion de vos informations</h3>
+                     
+			<section class="section Toload" id="compteLoad">
+					<table class="table is-responsive">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>N° tel</th>
+								<th>Email</th>
+								<th>Adresse</th>
+								</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td th:text="${client.nomClient}"></td>
+								<td th:text="${client.prenomClient}"></td>
+								<td th:text="${client.telPortable}"></td>
+								<td th:text="${client.email}"></td>
+								<td th:text="${client.adresse}"></td>
+								
+							</tr>
+						</tbody>						
+					</table>
+					</section>	
+													
+					<hr align =center > 
+					<h3> Offres promotionnelles</h3><br>
 					<input type="hidden" id="idClient" th:value="${client.idclient}">
-					<input type="checkbox" name="docsElectroniques" id="docsElectroniques" th:checked="${client.docsElectroniques}">										
+					<input type="checkbox" name="offresPromosAgence" id="offresPromosAgence" th:checked="${client.offresPromosAgence}"> 
+						<label> Recevoir les offres promotionnelles de l'agence</label>	<br><br>
+					
+					<input type="hidden" id="idClient" th:value="${client.idclient}">
+					<input type="checkbox" name="offresPromosPartenaire" id="offresPromosPartenaire" th:checked="${client.offresPromosPartenaire}">	
+						<label> Recevoir les offres promotionnelles des partenaires</label>	<br><br>
+						
+					<hr align =center> 	
+					<h3>Souscription documents électroniques</h3><br>
+					<input type="hidden" id="idClient" th:value="${client.idclient}">
+					<input type="checkbox" name="docsElectroniques" id="docsElectroniques" th:checked="${client.docsElectroniques}">
+						<label> Recevoir les documents au format électronique</label>										
 				</div>
 			</div>
 		</div>
+	
 	</section>
 
 </body>

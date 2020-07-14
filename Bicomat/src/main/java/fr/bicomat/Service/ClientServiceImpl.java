@@ -156,4 +156,21 @@ public class ClientServiceImpl implements ClientService {
 		else
 			this.getClientById(idClient).setDocsElectroniques(true);	
 	}
+	@Override
+	public void offresPromosAgence(Integer idClient) {
+		
+		if(this.getClientById(idClient).getOffresPromosAgence())
+			this.getClientById(idClient).setOffresPromosAgence(false);
+		else
+			this.getClientById(idClient).setOffresPromosAgence(true);	
+	}
+	
+	@Override
+	public void offresPromosPartenaire(Integer idClient) {
+		
+		if(this.getClientById(idClient).getOffresPromosPartenaire())
+			this.getClientById(idClient).setOffresPromosPartenaire(false);
+		else
+			this.getClientById(idClient).setOffresPromosPartenaire(true);	
+	}
 }
