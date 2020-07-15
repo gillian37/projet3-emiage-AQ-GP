@@ -1,1 +1,2 @@
-# projet3-emiage-AQ-GP
+# Projet N°3 Bicomat
+Incrémenté par Aline Quiniou et Gillian Petit
